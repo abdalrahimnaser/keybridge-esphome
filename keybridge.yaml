@@ -22,10 +22,10 @@ logger:
 #     components: [KeyBridge]
 #     # refresh: 1s
     
-# external_components:
-#   - source:
-#       type: local
-#       path: components
+external_components:
+  - source:
+      type: local
+      path: components
 
 dashboard_import:
   package_import_url: github://abdalrahimnaser/keybridge-esphome/keybridge.yaml@main
