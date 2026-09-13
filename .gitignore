@@ -1,0 +1,8 @@
+.venv/
+.esphome/
+.device-builder*
+secrets.yaml
+.DS_Store
+__pycache__/
+*.pyc
+scripts/
