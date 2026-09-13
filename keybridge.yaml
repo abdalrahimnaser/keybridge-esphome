@@ -1,0 +1,458 @@
+esphome:
+  name: keybridge
+  friendly_name: KeyBridge
+  name_add_mac_suffix: true
+  project:
+    name: keybridge.keybridge
+    version: "0.0.1"
+
+esp32:
+  board: esp32-s2-saola-1
+  framework:
+    type: esp-idf
+
+logger:
+  hardware_uart: UART0
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/abdalrahimnaser/keybridge-esphome
+      ref: main
+    components: [KeyBridge]
+    # refresh: 1s
+
+
+dashboard_import:
+  package_import_url: github://abdalrahimnaser/keybridge-esphome/keybridge.yaml@main
+  import_full_config: true
+
+api:
+  reboot_timeout: 0s
+  batch_delay: 0ms
+
+ota:
+  - platform: web_server
+  - platform: http_request
+
+http_request:
+
+update:
+  - platform: http_request
+    name: Firmware
+    source: https://abdalrahimnaser.github.io/keybridge-esphome/manifest.json
+    update_interval: 6h
+
+wifi:
+  ap:
+    ssid: "KeyBridge Setup"
+
+captive_portal:
+
+web_server:
+  port: 80
+
+KeyBridge:
+
+binary_sensor:
+  # Letters — Shift does not change the usage
+  - platform: KeyBridge
+    key: a
+    name: Key A
+  - platform: KeyBridge
+    key: b
+    name: Key B
+  - platform: KeyBridge
+    key: c
+    name: Key C
+  - platform: KeyBridge
+    key: d
+    name: Key D
+  - platform: KeyBridge
+    key: e
+    name: Key E
+  - platform: KeyBridge
+    key: f
+    name: Key F
+  - platform: KeyBridge
+    key: g
+    name: Key G
+  - platform: KeyBridge
+    key: h
+    name: Key H
+  - platform: KeyBridge
+    key: i
+    name: Key I
+  - platform: KeyBridge
+    key: j
+    name: Key J
+  - platform: KeyBridge
+    key: k
+    name: Key K
+  - platform: KeyBridge
+    key: l
+    name: Key L
+  - platform: KeyBridge
+    key: m
+    name: Key M
+  - platform: KeyBridge
+    key: n
+    name: Key N
+  - platform: KeyBridge
+    key: o
+    name: Key O
+  - platform: KeyBridge
+    key: p
+    name: Key P
+  - platform: KeyBridge
+    key: q
+    name: Key Q
+  - platform: KeyBridge
+    key: r
+    name: Key R
+  - platform: KeyBridge
+    key: s
+    name: Key S
+  - platform: KeyBridge
+    key: t
+    name: Key T
+  - platform: KeyBridge
+    key: u
+    name: Key U
+  - platform: KeyBridge
+    key: v
+    name: Key V
+  - platform: KeyBridge
+    key: w
+    name: Key W
+  - platform: KeyBridge
+    key: x
+    name: Key X
+  - platform: KeyBridge
+    key: y
+    name: Key Y
+  - platform: KeyBridge
+    key: z
+    name: Key Z
+
+  # Number row
+  - platform: KeyBridge
+    key: "0"
+    name: Key 0
+  - platform: KeyBridge
+    key: "1"
+    name: Key 1
+  - platform: KeyBridge
+    key: "2"
+    name: Key 2
+  - platform: KeyBridge
+    key: "3"
+    name: Key 3
+  - platform: KeyBridge
+    key: "4"
+    name: Key 4
+  - platform: KeyBridge
+    key: "5"
+    name: Key 5
+  - platform: KeyBridge
+    key: "6"
+    name: Key 6
+  - platform: KeyBridge
+    key: "7"
+    name: Key 7
+  - platform: KeyBridge
+    key: "8"
+    name: Key 8
+  - platform: KeyBridge
+    key: "9"
+    name: Key 9
+
+  # Editing
+  - platform: KeyBridge
+    key: enter
+    name: Enter
+  - platform: KeyBridge
+    key: escape
+    name: Escape
+  - platform: KeyBridge
+    key: backspace
+    name: Backspace
+  - platform: KeyBridge
+    key: tab
+    name: Tab
+  - platform: KeyBridge
+    key: space
+    name: Space
+  - platform: KeyBridge
+    key: minus
+    name: Minus
+  - platform: KeyBridge
+    key: equal
+    name: Equal
+  - platform: KeyBridge
+    key: left_bracket
+    name: Left Bracket
+  - platform: KeyBridge
+    key: right_bracket
+    name: Right Bracket
+  - platform: KeyBridge
+    key: backslash
+    name: Backslash
+  - platform: KeyBridge
+    key: semicolon
+    name: Semicolon
+  - platform: KeyBridge
+    key: apostrophe
+    name: Apostrophe
+  - platform: KeyBridge
+    key: grave
+    name: Grave
+  - platform: KeyBridge
+    key: comma
+    name: Comma
+  - platform: KeyBridge
+    key: dot
+    name: Dot
+  - platform: KeyBridge
+    key: slash
+    name: Slash
+  - platform: KeyBridge
+    key: caps_lock
+    name: Caps Lock
+
+  # Function
+  - platform: KeyBridge
+    key: f1
+    name: F1
+  - platform: KeyBridge
+    key: f2
+    name: F2
+  - platform: KeyBridge
+    key: f3
+    name: F3
+  - platform: KeyBridge
+    key: f4
+    name: F4
+  - platform: KeyBridge
+    key: f5
+    name: F5
+  - platform: KeyBridge
+    key: f6
+    name: F6
+  - platform: KeyBridge
+    key: f7
+    name: F7
+  - platform: KeyBridge
+    key: f8
+    name: F8
+  - platform: KeyBridge
+    key: f9
+    name: F9
+  - platform: KeyBridge
+    key: f10
+    name: F10
+  - platform: KeyBridge
+    key: f11
+    name: F11
+  - platform: KeyBridge
+    key: f12
+    name: F12
+  - platform: KeyBridge
+    key: print_screen
+    name: Print Screen
+  - platform: KeyBridge
+    key: scroll_lock
+    name: Scroll Lock
+  - platform: KeyBridge
+    key: pause
+    name: Pause
+
+  # Navigation
+  - platform: KeyBridge
+    key: insert
+    name: Insert
+  - platform: KeyBridge
+    key: home
+    name: Home
+  - platform: KeyBridge
+    key: page_up
+    name: Page Up
+  - platform: KeyBridge
+    key: delete
+    name: Delete
+  - platform: KeyBridge
+    key: end
+    name: End
+  - platform: KeyBridge
+    key: page_down
+    name: Page Down
+  - platform: KeyBridge
+    key: up
+    name: Arrow Up
+  - platform: KeyBridge
+    key: down
+    name: Arrow Down
+  - platform: KeyBridge
+    key: left
+    name: Arrow Left
+  - platform: KeyBridge
+    key: right
+    name: Arrow Right
+
+  # Keypad
+  - platform: KeyBridge
+    key: num_lock
+    name: Num Lock
+  - platform: KeyBridge
+    key: kp_divide
+    name: Keypad Divide
+  - platform: KeyBridge
+    key: kp_multiply
+    name: Keypad Multiply
+  - platform: KeyBridge
+    key: kp_minus
+    name: Keypad Minus
+  - platform: KeyBridge
+    key: kp_plus
+    name: Keypad Plus
+  - platform: KeyBridge
+    key: kp_enter
+    name: Keypad Enter
+  - platform: KeyBridge
+    key: kp_0
+    name: Keypad 0
+  - platform: KeyBridge
+    key: kp_1
+    name: Keypad 1
+  - platform: KeyBridge
+    key: kp_2
+    name: Keypad 2
+  - platform: KeyBridge
+    key: kp_3
+    name: Keypad 3
+  - platform: KeyBridge
+    key: kp_4
+    name: Keypad 4
+  - platform: KeyBridge
+    key: kp_5
+    name: Keypad 5
+  - platform: KeyBridge
+    key: kp_6
+    name: Keypad 6
+  - platform: KeyBridge
+    key: kp_7
+    name: Keypad 7
+  - platform: KeyBridge
+    key: kp_8
+    name: Keypad 8
+  - platform: KeyBridge
+    key: kp_9
+    name: Keypad 9
+  - platform: KeyBridge
+    key: kp_dot
+    name: Keypad Dot
+
+  # Modifiers
+  - platform: KeyBridge
+    key: left_ctrl
+    name: Left Ctrl
+  - platform: KeyBridge
+    key: left_shift
+    name: Left Shift
+  - platform: KeyBridge
+    key: left_alt
+    name: Left Alt
+  - platform: KeyBridge
+    key: left_gui
+    name: Left GUI
+  - platform: KeyBridge
+    key: right_ctrl
+    name: Right Ctrl
+  - platform: KeyBridge
+    key: right_shift
+    name: Right Shift
+  - platform: KeyBridge
+    key: right_alt
+    name: Right Alt
+  - platform: KeyBridge
+    key: right_gui
+    name: Right GUI
+  - platform: KeyBridge
+    key: application
+    name: Application
+
+  # Media / remote
+  - platform: KeyBridge
+    key: mute
+    name: Mute
+  - platform: KeyBridge
+    key: volume_up
+    name: Volume Up
+  - platform: KeyBridge
+    key: volume_down
+    name: Volume Down
+  - platform: KeyBridge
+    key: play_pause
+    name: Play Pause
+  - platform: KeyBridge
+    key: play
+    name: Play
+  - platform: KeyBridge
+    key: pause_media
+    name: Media Pause
+  - platform: KeyBridge
+    key: stop
+    name: Stop
+  - platform: KeyBridge
+    key: next_track
+    name: Next Track
+  - platform: KeyBridge
+    key: prev_track
+    name: Previous Track
+  - platform: KeyBridge
+    key: rewind
+    name: Rewind
+  - platform: KeyBridge
+    key: fast_forward
+    name: Fast Forward
+  - platform: KeyBridge
+    key: record
+    name: Record
+  - platform: KeyBridge
+    key: eject
+    name: Eject
+  - platform: KeyBridge
+    key: menu
+    name: Menu
+  - platform: KeyBridge
+    key: media_select
+    name: Media Select
+  - platform: KeyBridge
+    key: mail
+    name: Mail
+  - platform: KeyBridge
+    key: calculator
+    name: Calculator
+  - platform: KeyBridge
+    key: browser
+    name: Browser
+  - platform: KeyBridge
+    key: ac_home
+    name: Home Button
+  - platform: KeyBridge
+    key: ac_back
+    name: Back
+  - platform: KeyBridge
+    key: ac_forward
+    name: Forward
+
+  # System
+  - platform: KeyBridge
+    key: power
+    name: Power
+  - platform: KeyBridge
+    key: sleep
+    name: Sleep
+  - platform: KeyBridge
+    key: wake
+    name: Wake
