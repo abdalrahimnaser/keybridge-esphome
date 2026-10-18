@@ -1,3 +1,5 @@
+Get yourself a premade KeyBridge here: https://localdevices.net/products/keybridge
+
 Link to the hardware repo: https://github.com/abdalrahimnaser/keybridge-pcb
 
 
