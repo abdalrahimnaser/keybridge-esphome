@@ -6,7 +6,7 @@
       "chipFamily": "ESP32-S2",
       "ota": {
         "path": "keybridge-1.0.0.bin",
-        "md5": "be2c5d4733dc46e406cb9f5b11d7269f",
+        "md5": "17e288c1b31535894cbf0b2500b495b8",
         "summary": "Initial release"
       }
     }
